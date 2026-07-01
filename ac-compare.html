@@ -1,0 +1,502 @@
+<title>Сравнение климатици — homemart.bg</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#E4ECF6;
+  --surface:#fff;
+  --navy:#0C1B2A;
+  --text:#192C40;
+  --muted:#5A6F84;
+  --light:#A0B4C8;
+  --accent:#1462BC;
+  --border:#C2D2E4;
+  --row-alt:#F6F9FC;
+  --win-bg:#E4F2EB;
+  --win:#005038;
+  --low-bg:#FFF0DC;
+  --low:#7A3D00;
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+}
+
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+.ph{background:var(--navy);color:#fff;padding:18px 28px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.ph h1{font-size:17px;font-weight:600;letter-spacing:-.015em}
+.ph span{font-size:12.5px;color:#7AA4C0}
+
+.notice{background:#132234;color:#8AB8D4;padding:9px 28px;font-size:12.5px;line-height:1.5;border-bottom:1px solid #1E3650;display:flex;gap:8px;align-items:flex-start}
+.notice strong{color:#B8D4E8}
+
+.g18{display:inline-flex;align-items:center;gap:4px;padding:2px 7px 2px 4px;border-radius:3px;background:#1A4E9820;color:#5A9EE8;font-size:10px;font-weight:600;letter-spacing:.03em}
+.g12{display:inline-flex;align-items:center;gap:4px;padding:2px 7px 2px 4px;border-radius:3px;background:#63279820;color:#B07EF4;font-size:10px;font-weight:600;letter-spacing:.03em}
+.g18::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#4A8EE0}
+.g12::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#9A6EE0}
+
+.wrap{padding:22px 28px 36px}
+.tbl-outer{overflow-x:auto;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.10),0 0 0 1px var(--border)}
+
+table{width:100%;min-width:1180px;border-collapse:separate;border-spacing:0;background:var(--surface);border-radius:6px}
+
+thead{position:sticky;top:0;z-index:10}
+
+.hr th{background:var(--navy);color:#fff;padding:13px 8px 12px;font-size:11px;font-weight:500;text-align:center;vertical-align:bottom;border-right:1px solid #1D3348}
+.hr th:first-child{text-align:left;padding-left:14px;border-right:1px solid #1D3348;width:152px;min-width:152px}
+.hr th:last-child{border-right:none}
+
+.th-brand{font-size:10px;font-weight:400;color:#6FA4C4;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.th-name{font-size:11.5px;font-weight:600;line-height:1.25;margin-bottom:4px;text-wrap:balance}
+.th-name a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.th-name a:hover{border-bottom-color:#fff}
+.th-price{font-size:13px;font-weight:700;color:#A8D8FF;font-variant-numeric:tabular-nums;margin-bottom:5px;letter-spacing:-.01em}
+
+.cr td{background:#EEF4FA;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.dr td{padding:7px 8px;border-bottom:1px solid #EBF1F8;font-variant-numeric:tabular-nums;vertical-align:middle}
+.dr:nth-child(even) td{background:var(--row-alt)}
+.dr:last-child td{border-bottom:none}
+.dr td:first-child{font-size:11.5px;color:var(--muted);font-weight:500;padding-left:14px;border-right:1px solid var(--border)}
+.dr td:not(:first-child){text-align:center;font-size:12px}
+
+td.win{background:var(--win-bg) !important;color:var(--win);font-weight:600}
+td.low{background:var(--low-bg) !important;color:var(--low)}
+
+.ec{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.05em}
+.aaa{background:#1B7A48;color:#fff}
+.aa{background:#6DC88A;color:#0D3A1C}
+.ap{background:#A8DC6A;color:#1A3210}
+
+.price-eur{font-size:14px;font-weight:700;letter-spacing:-.02em;color:var(--text);line-height:1}
+.price-lv{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+td.win .price-eur{color:var(--win)}
+td.win .price-lv{color:#449A74}
+
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:3px;background:#EBF1F8;color:var(--muted);font-weight:500}
+.badge-th{background:#EAF4FF;color:#1060A0}
+
+.ck{color:#2A8A50;font-size:14px;line-height:1}
+.nd{color:#C0CDD8;font-size:12px}
+
+.footer{margin-top:14px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.legend{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:9px 14px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:6px}
+.leg-swatch{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+.leg-win{background:var(--win-bg);border:1px solid #8FCAB0}
+.leg-low{background:var(--low-bg);border:1px solid #EDBB80}
+.note{font-size:11.5px;color:var(--muted);line-height:1.7;flex:1;min-width:260px}
+.note strong{color:var(--text)}
+
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:11px;margin-top:20px}
+.rec{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:13px 14px}
+.rec-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.rec-name{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px}
+.rec-why{font-size:11.5px;color:var(--muted);line-height:1.5}
+.rec-blue{border-left:3px solid var(--accent)}
+.rec-green{border-left:3px solid #2A9A60}
+.rec-teal{border-left:3px solid #0894A0}
+.rec-purple{border-left:3px solid #7A4ECC}
+.rec-slate{border-left:3px solid #5A7090}
+.rec-amber{border-left:3px solid #C07020}
+</style>
+
+<div class="ph">
+  <h1>Сравнение на климатици</h1>
+  <span>homemart.bg · 7 модела · 30.06.2025</span>
+</div>
+
+<div class="notice">
+  <span>⚠</span>
+  <div><strong>Внимание за BTU класовете:</strong> Miota Performa, Midea Nordic, Midea Solstice, Midea Prime са <strong>18 000 BTU</strong> (за 30–40 м²). Mitsubishi Heavy, Miota Arctic2R и Midea Breezless+ са <strong>12 000 BTU</strong> (за 20–30 м²). SEER/SCOP сравнявайте само в рамките на еднаква BTU група.</div>
+</div>
+
+<div class="wrap">
+  <div class="tbl-outer">
+    <table>
+      <thead>
+        <tr class="hr">
+          <th></th>
+          <th>
+            <div class="th-brand">Miota</div>
+            <div class="th-name"><a href="https://homemart.bg/invertoren-klimatik-miota-performa-raw-pe50a-rxs-pe50a-wifi-18000-btu-klas-a" target="_blank" rel="noopener">Performa RAW-PE50A</a></div>
+            <div class="th-price">1 109 €</div>
+            <span class="g18">18 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Midea</div>
+            <div class="th-name"><a href="https://homemart.bg/invertoren-klimatik-midea-all-easy-pro-nordic-msepbu-18hrfn8-qrd0gw-mox430-18hfn9-qrd0gw-1" target="_blank" rel="noopener">All Easy Pro Nordic</a></div>
+            <div class="th-price">1 075 €</div>
+            <span class="g18">18 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Midea</div>
+            <div class="th-name"><a href="https://homemart.bg/invertoren-klimatik-midea-ez-18rd6-i-ez-18rd6h-o-solstice-18000-btu-klas-a" target="_blank" rel="noopener">Solstice EZ-18RD6</a></div>
+            <div class="th-price">1 125 €</div>
+            <span class="g18">18 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Midea</div>
+            <div class="th-name"><a href="https://homemart.bg/invertoren-klimatik-midea-prime-ma2-18nxd0-i" target="_blank" rel="noopener">Prime MA2-18NXD0</a></div>
+            <div class="th-price">949 €</div>
+            <span class="g18">18 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Mitsubishi Heavy</div>
+            <div class="th-name"><a href="https://homemart.bg/invertoren-klimatik-mitsubishi-heavy-industries-premium-srk35-zs-s-src35-zs-s" target="_blank" rel="noopener">Premium SRK35ZS-W</a></div>
+            <div class="th-price">1 169 €</div>
+            <span class="g12">12 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Miota</div>
+            <div class="th-name"><a href="https://homemart.bg/hiperinvertoren-klimatik-miota-arctic2r-raw-ar35a-rxs-ar35a-wifi-12000-btu-klas-a" target="_blank" rel="noopener">Arctic2R RAW-AR35A</a></div>
+            <div class="th-price">1 059 €</div>
+            <span class="g12">12 000 BTU</span>
+          </th>
+          <th>
+            <div class="th-brand">Midea</div>
+            <div class="th-name"><a href="https://homemart.bg/hiperinvertoren-klimatik-midea-breezless-msfaau-12hrfn8-mob01-12hfn8-1" target="_blank" rel="noopener">Breezless+ MSFAAU-12</a></div>
+            <div class="th-price">919 €</div>
+            <span class="g12">12 000 BTU</span>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr class="cr"><td colspan="8">Цена</td></tr>
+
+        <tr class="dr">
+          <td>Цена с ДДС</td>
+          <td><div class="price-eur">1 109 €</div><span class="price-lv">2 169 лв.</span></td>
+          <td><div class="price-eur">1 075 €</div><span class="price-lv">≈ 2 102 лв.</span></td>
+          <td><div class="price-eur">1 125 €</div><span class="price-lv">2 200 лв.</span></td>
+          <td class="win"><div class="price-eur">949 €</div><span class="price-lv">≈ 1 856 лв.</span></td>
+          <td><div class="price-eur">1 169 €</div><span class="price-lv">2 286 лв.</span></td>
+          <td><div class="price-eur">1 059 €</div><span class="price-lv">2 071 лв.</span></td>
+          <td class="win"><div class="price-eur">919 €</div><span class="price-lv">≈ 1 797 лв.</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>Клас устройство</td>
+          <td>Висок клас</td>
+          <td>Начален клас</td>
+          <td>Начален клас</td>
+          <td>Начален клас</td>
+          <td>Висок клас</td>
+          <td>Висок клас</td>
+          <td>Начален клас</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Мощност и приложение</td></tr>
+
+        <tr class="dr">
+          <td>Помещение</td>
+          <td>30–40 м²</td>
+          <td>30–40 м²</td>
+          <td>30–40 м²</td>
+          <td>30–40 м²</td>
+          <td>20–30 м²</td>
+          <td>20–30 м²</td>
+          <td>20–30 м²</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Охлаждане (ном./макс.)</td>
+          <td class="win">5.3 / 6.3 kW</td>
+          <td>5.27 / 6.12 kW</td>
+          <td>5.0 / 6.1 kW</td>
+          <td class="low">4.6 / 5.3 kW</td>
+          <td>3.5 / 4.0 kW</td>
+          <td>3.5 / 4.5 kW</td>
+          <td class="win">3.52 / 4.37 kW</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Отопление (ном./макс.)</td>
+          <td class="win">5.9 / 6.8 kW</td>
+          <td>5.57 / 6.77 kW</td>
+          <td>5.4 / 6.8 kW</td>
+          <td class="low">5.2 / 5.7 kW</td>
+          <td>4.0 / 5.0 kW</td>
+          <td class="win">4.2 / 7.4 kW</td>
+          <td>3.81 / 4.54 kW</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Тип компресор</td>
+          <td>Инвертор</td>
+          <td>Инвертор</td>
+          <td>Инвертор</td>
+          <td>Инвертор</td>
+          <td>Инвертор</td>
+          <td class="win">Хиперинвертор (Twin Rotary)</td>
+          <td>Инвертор</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Енергийна ефективност</td></tr>
+
+        <tr class="dr">
+          <td>Клас охлаждане</td>
+          <td><span class="ec aaa">A+++</span></td>
+          <td><span class="ec aaa">A+++</span></td>
+          <td><span class="ec aaa">A+++</span></td>
+          <td><span class="ec aa">A++</span></td>
+          <td><span class="ec aa">A++</span></td>
+          <td><span class="ec aaa">A+++</span></td>
+          <td><span class="ec aaa">A+++</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>Клас отопление</td>
+          <td><span class="ec aa">A++</span></td>
+          <td><span class="ec ap">A+</span></td>
+          <td><span class="ec aa">A++</span></td>
+          <td><span class="ec ap">A+</span></td>
+          <td><span class="ec aa">A++</span></td>
+          <td><span class="ec aaa">A+++</span></td>
+          <td><span class="ec aa">A++</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>SEER (охл. сезонна еф.)</td>
+          <td class="win">8.51</td>
+          <td>8.50</td>
+          <td>8.50</td>
+          <td class="low">6.40</td>
+          <td>8.40</td>
+          <td>8.50</td>
+          <td>8.50</td>
+        </tr>
+
+        <tr class="dr">
+          <td>SCOP (отоп. сезонна еф.)</td>
+          <td class="win">4.60</td>
+          <td class="low">4.30</td>
+          <td class="win">4.60</td>
+          <td class="low">4.00</td>
+          <td>4.70</td>
+          <td class="win">5.10</td>
+          <td>4.60</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Работен температурен диапазон</td></tr>
+
+        <tr class="dr">
+          <td>Охлаждане</td>
+          <td class="win">−20 ~ +50 °C</td>
+          <td>−15 ~ +50 °C</td>
+          <td>−15 ~ +50 °C</td>
+          <td>−15 ~ +48 °C</td>
+          <td>−15 ~ +46 °C</td>
+          <td>−15 ~ +43 °C</td>
+          <td>−15 ~ +50 °C</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Отопление (мин. / макс.)</td>
+          <td>−20 / +24 °C</td>
+          <td class="win">−25 / +24 °C</td>
+          <td class="win">−25 / +24 °C</td>
+          <td class="low">−15 / +24 °C</td>
+          <td class="low">−15 / +24 °C</td>
+          <td class="win">−30 / +24 °C</td>
+          <td class="win">−25 / +30 °C</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Ниво на шум</td></tr>
+
+        <tr class="dr">
+          <td>Вътрешно — безшумен</td>
+          <td>28 dB</td>
+          <td class="win">21 dB</td>
+          <td>21.5 dB</td>
+          <td>29 dB</td>
+          <td class="win">19 dB</td>
+          <td class="win">19 dB</td>
+          <td class="win">20 dB</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Вътрешно — номинал</td>
+          <td class="low">40 dB</td>
+          <td class="win">35 dB</td>
+          <td>36 dB</td>
+          <td>37 dB</td>
+          <td class="win">30 dB</td>
+          <td>34 dB</td>
+          <td>36 dB</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Вътрешно — максимум</td>
+          <td class="low">44 dB</td>
+          <td>41 dB</td>
+          <td>43 dB</td>
+          <td class="win">39 dB</td>
+          <td>40 dB</td>
+          <td>40 dB</td>
+          <td class="win">38 dB</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Външно — максимум</td>
+          <td>55 dB</td>
+          <td class="low">59 dB</td>
+          <td>57 dB</td>
+          <td><span class="nd">—</span></td>
+          <td class="win">48 dB</td>
+          <td>52 dB</td>
+          <td class="low">62 dB</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Функции и гаранция</td></tr>
+
+        <tr class="dr">
+          <td>WiFi управление</td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>UVC стерилизация</td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>Gold Fin защита</td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="nd">—</span></td>
+        </tr>
+
+        <tr class="dr">
+          <td>Гаранция (климатик)</td>
+          <td class="win">60 месеца</td>
+          <td>36 месеца</td>
+          <td>36 месеца</td>
+          <td class="win">60 месеца †</td>
+          <td>36 месеца</td>
+          <td class="win">60 месеца</td>
+          <td>36 месеца</td>
+        </tr>
+
+        <tr class="cr"><td colspan="8">Физически параметри</td></tr>
+
+        <tr class="dr">
+          <td>Вътрешно (В×Ш×Д, мм)</td>
+          <td>322×983×221</td>
+          <td>319×965×239</td>
+          <td>308×975×218</td>
+          <td>311×982×221</td>
+          <td>290×870×230</td>
+          <td>307×875×217</td>
+          <td>325×940×193</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Тегло вътрешно</td>
+          <td class="low">12.8 кг</td>
+          <td>12.3 кг</td>
+          <td>10.2 кг</td>
+          <td><span class="nd">—</span></td>
+          <td class="win">10.0 кг</td>
+          <td>10.0 кг</td>
+          <td>10.7 кг</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Тегло външно</td>
+          <td>36.3 кг</td>
+          <td class="low">38.8 кг</td>
+          <td>37.8 кг</td>
+          <td><span class="nd">—</span></td>
+          <td>34.5 кг</td>
+          <td class="low">37.8 кг</td>
+          <td class="win">29.3 кг</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Хладилен агент</td>
+          <td>R-32</td><td>R-32</td><td>R-32</td><td>R-32</td><td>R-32</td><td>R-32</td><td>R-32</td>
+        </tr>
+
+        <tr class="dr">
+          <td>Произход</td>
+          <td><span class="badge">Китай</span></td>
+          <td><span class="badge">Китай</span></td>
+          <td><span class="badge">Китай</span></td>
+          <td><span class="badge">Китай</span></td>
+          <td><span class="badge badge-th">Тайланд</span></td>
+          <td><span class="badge">Китай</span></td>
+          <td><span class="badge">Китай</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="legend">
+      <div class="leg"><div class="leg-swatch leg-win"></div><span>Най-добра стойност в категорията</span></div>
+      <div class="leg"><div class="leg-swatch leg-low"></div><span>По-слаба стойност</span></div>
+      <div class="leg" style="color:var(--light)">— = данните не са публикувани</div>
+    </div>
+    <div class="note">
+      † Midea Prime — 60 мес. гаранция важи при покупка <strong>с монтаж от homemart.bg</strong>.
+    </div>
+  </div>
+
+  <div class="recs">
+    <div class="rec rec-slate">
+      <div class="rec-label">Най-достъпен — 18 000 BTU</div>
+      <div class="rec-name">Midea Prime MA2-18NXD0</div>
+      <div class="rec-why">949 € — 126–176 € по-евтин от конкурентите. SEER 6.4 е компромис, но при умерена употреба разликата в сметката е малка. 60 мес. гаранция с монтаж.</div>
+    </div>
+    <div class="rec rec-green">
+      <div class="rec-label">Най-ефективен — 18 000 BTU</div>
+      <div class="rec-name">Miota Performa RAW-PE50A</div>
+      <div class="rec-why">SEER 8.51, SCOP 4.60, 60 мес. гаранция, WiFi, UVC — пълна спецификация при конкурентна цена. Работи до −20 °C. Само 16 € по-евтин от Solstice.</div>
+    </div>
+    <div class="rec rec-teal">
+      <div class="rec-label">Тих нощен режим — 18 000 BTU</div>
+      <div class="rec-name">Midea Solstice EZ-18RD6</div>
+      <div class="rec-why">21.5 dB безшумен режим, SCOP 4.6, A++/A+++, −25 °C. Алтернатива на Performa ако нощната тишина е приоритет. Идентични SCOP, 36 мес. гаранция.</div>
+    </div>
+    <div class="rec rec-blue">
+      <div class="rec-label">Студен климат / цена — 18 000 BTU</div>
+      <div class="rec-name">Midea All Easy Pro Nordic</div>
+      <div class="rec-why">−25 °C, A+++, 1075 € — най-евтин сред A+++ 18K моделите. SCOP 4.3 и 21 dB безшумен са добри. Слабост: 59 dB шум на външното тяло.</div>
+    </div>
+    <div class="rec rec-purple">
+      <div class="rec-label">Технически лидер — 12 000 BTU</div>
+      <div class="rec-name">Miota Arctic2R RAW-AR35A</div>
+      <div class="rec-why">SCOP 5.1 (най-висок от 7-те), A+++/A+++, Twin Rotary, −30 °C, 60 мес. гаранция. Безспорен технически лидер в групата 12K.</div>
+    </div>
+    <div class="rec rec-amber">
+      <div class="rec-label">Най-достъпен + тих — 12 000 BTU</div>
+      <div class="rec-name">Midea Breezless+ MSFAAU-12</div>
+      <div class="rec-why">919 € (най-евтин 12K), 20 dB безшумен режим (рекорд!), лекo 29.3 кг външно тяло, −25 °C, +30 °C горна граница при отопление. Компромис: 62 dB шум навън.</div>
+    </div>
+    <div class="rec rec-slate">
+      <div class="rec-label">Качество и тихост — 12 000 BTU</div>
+      <div class="rec-name">Mitsubishi Heavy SRK35ZS-W</div>
+      <div class="rec-why">Тайланд, номинален шум 30 dB — най-тих при работа сред всичките 7. SEER 8.4 / SCOP 4.7. Японска надеждност, без −25 °C отопление.</div>
+    </div>
+  </div>
+</div>
